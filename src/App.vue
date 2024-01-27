@@ -1,7 +1,23 @@
 <template>
+  <menu-sistema />
   <router-view />
 </template>
 
-<script setup>
-  //
+
+<script>
+import Menu from './components/Menu.vue';
+
+export default {
+  data() {
+    return {
+      
+    }
+  },
+
+  components:{
+    'menu-sistema' :Menu
+  }
+}
+
+
 </script>
