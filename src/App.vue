@@ -21,3 +21,11 @@ export default {
 
 
 </script>
+
+<style>
+.container{
+  margin-left: 70px;
+}
+
+
+</style>

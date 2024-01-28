@@ -16,24 +16,24 @@
           <v-icon color="black" size="27">mdi-menu</v-icon>  
         </v-btn>
 
-        <v-list density="comfortable" nav>
+        <v-list class="lista-menu" density="comfortable" nav>
           <v-list-item 
-            class="item-menu"
+            to="/"
             @click.stop="rail = true" 
             prepend-icon="mdi-clipboard-check-multiple-outline" 
             value="tarefas"
             >
             <v-list-item-title>Tarefas</v-list-item-title>
           </v-list-item>
-          <v-list-item 
-            class="item-menu"
+          <v-list-item
+            to="/anotacoes"
             @click.stop="rail = true" 
             prepend-icon="mdi-clipboard-text-multiple-outline"  
-            value="textos">
-            <v-list-item-title>Textos</v-list-item-title>
+            value="anotacoes">
+            <v-list-item-title>Anotações</v-list-item-title>
           </v-list-item>
           <v-list-item 
-            class="item-menu"
+            to="/financas"
             @click.stop="rail = true" 
             prepend-icon="mdi-cash-multiple"
             value="financas">
@@ -59,10 +59,14 @@
 </script>
 <style scoped>
 
-.item-menu{
-  
+.lista-menu{
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+div[class="v-list-item-title"]{
+  font-size: 15px;
 }
   
 </style>
