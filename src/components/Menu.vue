@@ -1,11 +1,12 @@
 <template>
-  <v-card>
+  
     <v-layout>
       <v-navigation-drawer
         v-model="drawer"
         :rail="rail"
         permanent
-        color="secondary"
+        color="primary"
+        z-index="999"
       >
         <v-btn  
           size="55" 
@@ -13,7 +14,7 @@
           variant="text"
           @click.stop="rail = !rail" 
           height="50px"> 
-          <v-icon color="black" size="27">mdi-menu</v-icon>  
+          <v-icon size="27">mdi-menu</v-icon>  
         </v-btn>
 
         <v-list class="lista-menu" density="comfortable" nav>
@@ -43,7 +44,7 @@
       </v-navigation-drawer>
       
     </v-layout>
-  </v-card>
+  
 </template>
 
 

@@ -1,0 +1,7 @@
+{
+  "tarefas": [
+    { "id": "1", "titulo": "a titulo", "categoria": 1, "data": "14/02/2024" },
+    { "id": "2", "titulo": "another titulo", "categoria": 2, "data": "14/02/2024" }
+  ]
+  
+}
