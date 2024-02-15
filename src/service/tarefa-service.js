@@ -18,8 +18,28 @@ function cadastrar(tarefa) {
   });
 }
 
+function atualizar(tarefa) {
+  return new Promise((resolve, reject) => {
+    return http
+      .put(`/tarefas/${tarefa.id}`, tarefa)
+      .then((response) => resolve(response))
+      .catch((error) => reject(error));
+  });
+}
+
+function deletar(tarefa) {
+  return new Promise((resolve, reject) => {
+    return http
+      .delete(`/tarefas/${tarefa.id}`)
+      .then((response) => resolve(response))
+      .catch((error) => reject(error));
+  });
+}
+
 
 export default {
   obterTodos,
-  cadastrar
+  cadastrar,
+  atualizar,
+  deletar
 }

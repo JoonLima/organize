@@ -1,10 +1,60 @@
 {
   "tarefas": [
-    { "id": "1", "titulo": "a titulo", "data": "14/02/2024", "favorito": false, "concluido": false },
-    { "id": "2", "titulo": "another titulo", "data": "14/02/2024", "favorito": false, "concluido": false },
-    { "id": "3", "titulo": "teste", "data": "14/02/2024", "favorito": true, "concluido": true },
-    { "id": "4", "titulo": "teste2", "data": "14/02/2024", "favorito": false, "concluido": true },
-    { "id": "5", "titulo": "teste3", "data": "14/02/2024", "favorito": false, "concluido": false }
+    {
+      "id": "1",
+      "titulo": "a titulo",
+      "data": "14/02/2024",
+      "favorito": true,
+      "concluido": false
+    },
+    {
+      "id": "2",
+      "titulo": "another titulo",
+      "data": "14/02/2024",
+      "favorito": true,
+      "concluido": false
+    },
+    {
+      "id": "3",
+      "titulo": "teste",
+      "data": "14/02/2024",
+      "favorito": true,
+      "concluido": true
+    },
+    {
+      "id": "4",
+      "titulo": "teste2",
+      "data": "14/02/2024",
+      "favorito": false,
+      "concluido": true
+    },
+    {
+      "id": "5",
+      "titulo": "teste3",
+      "data": "14/02/2024",
+      "favorito": false,
+      "concluido": false
+    },
+    {
+      "id": "f369a937-66dc-4d92-9cc2-c3c283709473",
+      "titulo": "reverso",
+      "data": "15/02/2024",
+      "favorito": true,
+      "concluido": false
+    },
+    {
+      "id": "7b5d5b63-d517-427c-9f03-d95a92638e41",
+      "titulo": "Banho",
+      "data": "15/02/2024",
+      "favorito": false,
+      "concluido": true
+    },
+    {
+      "id": "caed4aa0-ab2a-46ed-812d-561fadf9245d",
+      "titulo": "Tenébrios ou peixes",
+      "data": "15/02/2024",
+      "favorito": true,
+      "concluido": false
+    }
   ]
-  
 }

@@ -3,7 +3,7 @@
     <div class="cabecalho">
       <div class="titulo">
         <v-icon>mdi-weather-sunny</v-icon>
-        <span>Meu dia</span>
+        <span>Minhas tarefas</span>
       </div>
       <div class="data">
         <span>{{formatarDataCabecalho}}</span>
@@ -19,18 +19,19 @@
         single-line
         autofocus
         @click:append="console.log('teste')"
+        v-model="tarefa.titulo"
       >
         <template v-slot:append-inner>
-          <v-btn class="text-none btn-adicionar">
+          <v-btn @click="adicionarTarefa" class="text-none btn-adicionar">
             <v-icon>mdi-plus</v-icon>
             Adicionar
           </v-btn>
         </template>
-
       </v-text-field>
+
       <div class="lista-tarefas">
         <span v-if="tarefas.length <= 0">Nenhuma tarefa</span>
-        <card-padrao v-else  v-for="tarefa in tarefas" :tarefa="tarefa"/>
+        <card-padrao v-else  v-for="tarefa in tarefas" :tarefa="tarefa" @tarefaDeletada="obterTodos"/>
       </div>
     </div>
   </div>
@@ -46,13 +47,15 @@ export default {
   components:{CardPadrao},
   data() {
     return {
-      tarefas: []
+      tarefas: [],
+      tarefa: new Tarefa(),
     }
   },
 
   computed:{
     formatarDataCabecalho(){
-      return moment(new Date).locale('pt-br').format('LLLL');
+      let dataAtual = new Date()
+      return `${moment(dataAtual).format('dddd')}, ${moment(dataAtual).format('LL')}`
     }
   },
 
@@ -61,10 +64,22 @@ export default {
       tarefaService.obterTodos()
         .then((response) => {
           this.tarefas = response.data.map((t) => new Tarefa(t))
+          this.tarefas.reverse();
         })
         .catch((error) => console.log(error))
-    }
+    },
+
+    adicionarTarefa(){
+      tarefaService.cadastrar(this.tarefa)
+        .then(() => {
+          this.tarefa = new Tarefa();
+          this.obterTodos();
+        })
+        .catch((error) => console.log(error));
+    },
   },
+
+  
 
   mounted(){
     this.obterTodos();
@@ -105,6 +120,14 @@ export default {
   max-width: 95px;
   color: #fff;
   background-color: #084A89;
+}
+
+.todos{
+  background-color: red;
+}
+
+.favoritos{
+  background-color: red;
 }
 
 </style>
