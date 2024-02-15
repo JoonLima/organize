@@ -20,16 +20,17 @@
         autofocus
         @click:append="console.log('teste')"
       >
-        <template v-slot:append>
+        <template v-slot:append-inner>
           <v-btn class="text-none btn-adicionar">
+            <v-icon>mdi-plus</v-icon>
             Adicionar
           </v-btn>
         </template>
 
       </v-text-field>
-
       <div class="lista-tarefas">
-        <span>Nenhuma tarefa</span>
+        <span v-if="tarefas.length <= 0">Nenhuma tarefa</span>
+        <card-padrao v-else  v-for="tarefa in tarefas" :tarefa="tarefa"/>
       </div>
     </div>
   </div>
@@ -37,10 +38,15 @@
 <script>
 import moment from 'moment';
 import 'moment/locale/pt-br'
+import CardPadrao from '@/components/CardPadrao.vue';
+import tarefaService from '@/service/tarefa-service';
+import Tarefa from '@/models/tarefa-model';
 
 export default {
+  components:{CardPadrao},
   data() {
     return {
+      tarefas: []
     }
   },
 
@@ -48,6 +54,20 @@ export default {
     formatarDataCabecalho(){
       return moment(new Date).locale('pt-br').format('LLLL');
     }
+  },
+
+  methods:{
+    obterTodos(){
+      tarefaService.obterTodos()
+        .then((response) => {
+          this.tarefas = response.data.map((t) => new Tarefa(t))
+        })
+        .catch((error) => console.log(error))
+    }
+  },
+
+  mounted(){
+    this.obterTodos();
   }
 }
 </script>
@@ -72,14 +92,17 @@ export default {
 }
 
 .conteudo .lista-tarefas{
+  padding-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .conteudo .btn-adicionar{
   font-size: .75rem;
-  max-width: 90px;
+  max-width: 95px;
   color: #fff;
   background-color: #084A89;
 }

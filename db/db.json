@@ -1,7 +1,10 @@
 {
   "tarefas": [
-    { "id": "1", "titulo": "a titulo", "categoria": 1, "data": "14/02/2024" },
-    { "id": "2", "titulo": "another titulo", "categoria": 2, "data": "14/02/2024" }
+    { "id": "1", "titulo": "a titulo", "data": "14/02/2024", "favorito": false, "concluido": false },
+    { "id": "2", "titulo": "another titulo", "data": "14/02/2024", "favorito": false, "concluido": false },
+    { "id": "3", "titulo": "teste", "data": "14/02/2024", "favorito": true, "concluido": true },
+    { "id": "4", "titulo": "teste2", "data": "14/02/2024", "favorito": false, "concluido": true },
+    { "id": "5", "titulo": "teste3", "data": "14/02/2024", "favorito": false, "concluido": false }
   ]
   
 }
