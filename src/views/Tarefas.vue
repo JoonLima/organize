@@ -1,13 +1,32 @@
 <template>
   <div class="container">
     <div class="cabecalho">
-      <div class="titulo">
-        <v-icon>mdi-weather-sunny</v-icon>
-        <span>Minhas tarefas</span>
+      <div class="titulo-cabecalho">
+        <div class="texto">
+          <v-icon>mdi-weather-sunny</v-icon>
+          <span>Minhas tarefas</span>
+        </div>
+        
+        <div class="data">
+          <span>{{formatarDataCabecalho}}</span>
+        </div>
       </div>
-      <div class="data">
-        <span>{{formatarDataCabecalho}}</span>
-      </div>
+
+        <div class="filtro">
+          <div class="titulo-filtro">
+            <span>Filtro para exibição</span>
+          </div>
+          <div class="botoes">
+            <v-btn @click="obterTodos" :class="{'selecionado' : exibirTodos}" size="small" variant="tonal"> 
+              <span>Todos</span>
+            </v-btn>
+            <v-btn @click="obterFavoritos" :class="{'selecionado' : !exibirTodos}" size="small" variant="tonal"> 
+              <span>Favoritos</span>
+            </v-btn>
+
+          </div>
+        </div>
+
     </div>
     <div class="conteudo">
       <v-text-field
@@ -49,6 +68,7 @@ export default {
     return {
       tarefas: [],
       tarefa: new Tarefa(),
+      exibirTodos: true
     }
   },
 
@@ -63,6 +83,7 @@ export default {
     obterTodos(){
       tarefaService.obterTodos()
         .then((response) => {
+          this.exibirTodos = true;
           this.tarefas = response.data.map((t) => new Tarefa(t))
           this.tarefas.reverse();
         })
@@ -77,6 +98,12 @@ export default {
         })
         .catch((error) => console.log(error));
     },
+
+    obterFavoritos(){
+      this.exibirTodos = false
+      let somenteFavoritos = this.tarefas.filter(t => t.favorito == true)
+      this.tarefas = somenteFavoritos
+    }
   },
 
   
@@ -89,11 +116,18 @@ export default {
 
 <style scoped>
 
-.cabecalho .titulo{
+.cabecalho{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cabecalho .titulo-cabecalho{
   font-size: 1.4rem;
   margin-top: 1rem;
   display: flex;
   gap: 5px;
+  flex-direction: column;
 }
 
 .cabecalho .data{
@@ -122,12 +156,24 @@ export default {
   background-color: #084A89;
 }
 
-.todos{
-  background-color: red;
+.selecionado{
+  background-color: #084A89;
+  color: #ffff;
 }
 
-.favoritos{
-  background-color: red;
+.cabecalho .filtro{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cabecalho .filtro .botoes{
+  display: flex;
+  gap: 10px;
+}
+
+.filtro .titulo-filtro{
+  font-size: .8rem;
 }
 
 </style>

@@ -1,11 +1,10 @@
 <template>
-  <menu-sistema />
   <router-view />
 </template>
 
 
 <script>
-import Menu from './components/Menu.vue';
+
 
 export default {
   data() {
@@ -13,19 +12,25 @@ export default {
       
     }
   },
-
-  components:{
-    'menu-sistema' :Menu
-  }
 }
-
-
 </script>
 
 <style>
 .container{
-  margin-left: 80px;
-  margin-right: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  background: #084A89;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #084A89;
 }
 
 
