@@ -16,11 +16,14 @@ export default createVuetify({
   theme: {
     themes: {
       light: {
-        colors: {
-          primary: '#084A89',
-          secondary: '#F5F6F8',
-        },
-      },
+        primary: "#165091",
+        secondary: "#616161", // #FFCDD2
+        icone: "#165091",
+    },
+    dark: {
+        primary: '#165091',
+        icone: "#FFF",
+    }
     },
   },
 })

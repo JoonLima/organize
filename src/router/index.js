@@ -1,4 +1,4 @@
-import Tarefas from '@/views/Tarefas.vue'
+import Tarefas from '@/views/MinhasTarefas.vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
 

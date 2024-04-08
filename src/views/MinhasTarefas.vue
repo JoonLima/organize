@@ -12,6 +12,8 @@
         </div>
       </div>
 
+      <switch-theme />
+
         <div class="filtro">
           <div class="titulo-filtro">
             <span>Filtro para exibição</span>
@@ -41,7 +43,7 @@
         v-model="tarefa.titulo"
       >
         <template v-slot:append-inner>
-          <v-btn @click="adicionarTarefa" class="text-none btn-adicionar">
+          <v-btn @click="adicionarTarefa" class="text-none btn-adicionar" color="primary">
             <v-icon>mdi-plus</v-icon>
             Adicionar
           </v-btn>
@@ -50,7 +52,7 @@
 
       <div class="lista-tarefas">
         <span v-if="tarefas.length <= 0">Nenhuma tarefa</span>
-        <card-padrao v-else  v-for="tarefa in tarefas" :tarefa="tarefa" @tarefaDeletada="obterTodos"/>
+        <card-padrao v-else  v-for="tarefa in tarefas" :key="tarefa" :tarefa="tarefa" @tarefaDeletada="obterTodos"/>
       </div>
     </div>
   </div>
@@ -59,11 +61,12 @@
 import moment from 'moment';
 import 'moment/locale/pt-br'
 import CardPadrao from '@/components/CardPadrao.vue';
+import SwitchTheme from '@/components/SwitchTheme.vue'
 import tarefaService from '@/service/tarefa-service';
 import Tarefa from '@/models/tarefa-model';
 
 export default {
-  components:{CardPadrao},
+  components:{CardPadrao, SwitchTheme},
   data() {
     return {
       tarefas: [],
@@ -108,9 +111,9 @@ export default {
 
   
 
-  mounted(){
-    this.obterTodos();
-  }
+  // mounted(){
+  //   this.obterTodos();
+  // }
 }
 </script>
 
