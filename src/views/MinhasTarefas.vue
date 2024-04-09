@@ -5,14 +5,13 @@
         <div class="texto">
           <v-icon>mdi-weather-sunny</v-icon>
           <span>Minhas tarefas</span>
+          <switch-theme />
         </div>
         
         <div class="data">
           <span>{{formatarDataCabecalho}}</span>
         </div>
       </div>
-
-      <switch-theme />
 
         <div class="filtro">
           <div class="titulo-filtro">
@@ -111,9 +110,9 @@ export default {
 
   
 
-  // mounted(){
-  //   this.obterTodos();
-  // }
+  mounted(){
+    this.obterTodos();
+  }
 }
 </script>
 
@@ -133,10 +132,15 @@ export default {
   flex-direction: column;
 }
 
+.titulo-cabecalho .texto{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .cabecalho .data{
   margin-left: 5px;
   font-size: .8rem;
-  color: rgba(0, 0, 0, 0.637);
 }
 
 .conteudo{
@@ -177,6 +181,14 @@ export default {
 
 .filtro .titulo-filtro{
   font-size: .8rem;
+}
+
+@media (max-width: 600px) {
+  .titulo-cabecalho .texto{
+    flex-wrap: wrap;
+    font-size: 17px;
+  }
+  
 }
 
 </style>
