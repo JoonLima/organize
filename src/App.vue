@@ -31,5 +31,12 @@ export default {
   background: #084A89;
 }
 
+@media (max-width: 600px) {
+  .container{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+}
+
 
 </style>

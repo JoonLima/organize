@@ -135,6 +135,7 @@ export default {
 .titulo-cabecalho .texto{
   display: flex;
   align-items: center;
+  max-height: 30px;
   gap: 7px;
 }
 
@@ -184,9 +185,20 @@ export default {
 }
 
 @media (max-width: 600px) {
+
+  .cabecalho{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+  }
+
   .titulo-cabecalho .texto{
-    flex-wrap: wrap;
-    font-size: 17px;
+    max-height: 30px;
+  }
+
+  .cabecalho .filtro{
+    padding: 5px;
   }
   
 }
