@@ -7,7 +7,7 @@ function obterTodos(){
       .then((response) => resolve(response))
       .catch((error) => reject(error))
   });
-};
+}
 
 function cadastrar(tarefa) {
   return new Promise((resolve, reject) => {
