@@ -58,9 +58,7 @@ export default {
       this.tarefa.concluido = !this.tarefa.concluido
 
       tarefaService.atualizar(this.tarefa)
-        .then((response) => {
-          console.log(response)
-        })
+        .then(() => {})
         .catch((error) => console.log(error));
     }
   }
